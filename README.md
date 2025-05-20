@@ -18,12 +18,12 @@ IntelliBuddy is an advanced AI-powered chatbot built with React, TypeScript, and
 ### User Experience
 
 - **Elegant Theme System**: Switch seamlessly between light and dark modes with smooth transitions
-- **Message Reactions**: Express emotions through emoji reactions (❤️, 😂, 😊, 😠, 😢) with custom bot responses
+- **Message Reactions**: Express emotions through emoji reactions (❤️, 😂, 😮, 😊, 😠, 😢) with custom bot responses
 - **Right-Click Context Menu**: Access reactions and copy functionality through an intuitive context menu
 - **Multi-Language Support**: Communicate in 12 languages with real-time translation:
   - English 🇬🇧, Spanish 🇪🇸, Hindi 🇮🇳, Chinese 🇨🇳, French 🇫🇷
-  - Arabic 🇸🇦, Bengali 🇧🇩, Portuguese 🇵🇹, Russian 🇷🇺
-  - Urdu 🇵🇰, Indonesian 🇮🇩, German 🇩🇪
+  - Arabic 🇸🇦, Japanese 🇯🇵, Portuguese 🇵🇹, Russian 🇷🇺
+  - Korean 🇰🇷, Indonesian 🇮🇩, German 🇩🇪
 - **Markdown Rendering**: Beautiful formatting of responses with support for headings, lists, code blocks, and tables
 - **Message Copy Feature**: Copy conversation text to clipboard with a single click
 
