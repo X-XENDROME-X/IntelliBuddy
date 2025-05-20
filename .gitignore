@@ -1,0 +1,55 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules and build outputs
+node_modules
+server/node_modules
+dist
+dist-ssr
+*.local
+*.tsbuildinfo
+
+# Environment variables and sensitive data
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files and caches
+.cache
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+pnpm-debug.*
+lerna-debug.*
+
+# Build artifacts and other temporary files
+coverage
+build
+temp
+tmp
+
+# macOS specific files
+Thumbs.db
+ehthumbs.db
+
+# Vite specific
+vite.config.ts.timestamp-*

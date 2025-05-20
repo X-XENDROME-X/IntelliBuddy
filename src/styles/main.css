@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
+:root {
+  --text: #2f2f2f;
+  --background: #f7fff7;
+  --primary: #1a535c;
+  --secondary: #ff6b6b;
+  --accent: #4ecdc4;
+  
+  /* Additional variables */
+  --card-bg: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
