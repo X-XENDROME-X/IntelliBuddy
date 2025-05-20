@@ -1,7 +1,7 @@
 <h1 align="center"> IntelliBuddy 🤖 </h1>
 
 <p align="center">
-  <img src="src/assets/intellibuddy.png" alt="IntelliBuddy Logo" width="300" />
+  <img src="src/assets/bot-image.png" alt="IntelliBuddy Logo" width="300" />
 </p>
 
 IntelliBuddy is an advanced AI-powered chatbot built with React, TypeScript, and Google's Gemini API. It offers a rich, interactive conversational experience with cutting-edge features like context-awareness, multilingual support, and adaptive theming. Designed to showcase modern frontend development techniques and AI integration, IntelliBuddy demonstrates sophisticated state management, responsive design, and thoughtful user experience enhancements.
