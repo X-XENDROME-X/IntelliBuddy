@@ -4,7 +4,7 @@
   <img src="src/assets/bot-image.png" alt="IntelliBuddy Logo" width="300" />
 </p>
 
-IntelliBuddy is an advanced AI-powered chatbot built with React, TypeScript, and Google's Gemini API. It offers a rich, interactive conversational experience with cutting-edge features like context-awareness, multilingual support, and adaptive theming. Designed to showcase modern frontend development techniques and AI integration, IntelliBuddy demonstrates sophisticated state management, responsive design, and thoughtful user experience enhancements.
+IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, and Google's Gemini API. It offers a rich, interactive conversational experience with cutting-edge features like context-awareness, multilingual support, and adaptive theming. Designed to showcase modern frontend development techniques and AI integration, IntelliBuddy demonstrates sophisticated state management, responsive design, and thoughtful user experience enhancements.
 
 ## 🌟 Features
 
@@ -182,7 +182,7 @@ IntelliBuddy remembers not only the conversation history but also extracts and m
 
 ### Time-Aware Interface
 
-The chatbot detects your local time and adjusts greetings accordingly, showing appropriate morning, afternoon, evening, or night messages with matching icons.
+The Assistant detects your local time and adjusts greetings accordingly, showing appropriate morning, afternoon, evening, or night messages with matching icons.
 
 ### Emoji Reaction System
 
