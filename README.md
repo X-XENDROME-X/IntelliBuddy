@@ -6,6 +6,16 @@
 
 IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, and Google's Gemini API. It offers a rich, interactive conversational experience with cutting-edge features like context-awareness, multilingual support, and adaptive theming. Designed to showcase modern frontend development techniques and AI integration, IntelliBuddy demonstrates sophisticated state management, responsive design, and thoughtful user experience enhancements.
 
+---
+
+## 🚀 Live Demo
+
+**Live Application**: [https://intellibuddy-app-unique.azurewebsites.net](https://intellibuddy-app-unique.azurewebsites.net)
+
+*Experience IntelliBuddy in action - no installation required! The app is hosted on Azure App Service with Docker containerization.*
+
+---
+
 ## 🌟 Features
 
 ### Core Intelligence
@@ -33,6 +43,7 @@ IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, a
 - **Persistent Rate Limiting**: Rate limit states persist across page refreshes for proper API quota management
 - **Offline Detection**: Automatically detects when users lose connectivity with appropriate UI feedback
 - **Responsive Design**: Fully responsive interface that works beautifully on any device
+- **Cloud Deployment**: Production-ready deployment on Microsoft Azure with container orchestration
 
 ## 🛠️ Technologies Used
 
@@ -54,12 +65,33 @@ IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, a
 - **Google Generative AI**: Integration with Google's Gemini API for AI-powered conversations
 - **RESTful Principles**: For structured communication with backend services
 
+### Containerization & Cloud Deployment
+- **Docker**: Platform for containerising the application, ensuring consistency across environments
+- **Azure Container Registry**: Cloud-hosted container registry for storing Docker images
+- **Azure App Service**: Platform-as-a-Service for hosting web applications with auto-scaling
+
 ### Development Tools
 - **Node.js**: JavaScript runtime environment for development
 - **npm**: Package manager for JavaScript dependencies
 - **ESLint**: For code linting and ensuring consistent code quality
 - **TypeScript Compiler**: For type checking and transpilation
 - **CSS Modules**: For component-scoped styling
+- **Azure CLI**: Command-line interface for Azure resource management
+
+## 🌐 Deployment Architecture
+
+IntelliBuddy is deployed using a modern containerized architecture on Microsoft Azure:
+
+###  Infrastructure
+- **Azure App Service**: Hosts the containerized React application.
+- **Azure Container Registry**: Stores and manages Docker images securely
+- **Azure Resource Group**: Logical container for organizing related Azure resources
+
+### Deployment Pipeline
+1. **Containerization**: Application is packaged using Docker with optimized multi-stage builds
+2. **Registry Push**: Docker images are pushed to Azure Container Registry
+3. **Service Deployment**: Azure App Service pulls and runs the latest container image
+4. **Auto-scaling**: Azure automatically handles traffic spikes and resource management
 
 ## 📂 Project Structure
 
@@ -130,6 +162,7 @@ Before running IntelliBuddy, ensure you have:
 
 - [Node.js](https://nodejs.org/) (v16.0.0 or higher)
 - [npm](https://www.npmjs.com/) (v7.0.0 or higher)
+- [Docker](https://docs.docker.com/get-docker/) (for containerization)
 - A [Google Generative AI API key](https://makersuite.google.com/app/apikey) for the Gemini model
 
 ## 🚀 Installation & Setup
