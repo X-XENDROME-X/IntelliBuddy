@@ -4,7 +4,7 @@
   <img src="src/assets/bot-image.png" alt="IntelliBuddy Logo" width="300" />
 </p>
 
-IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, and Google's Gemini API. It offers a rich, interactive conversational experience with cutting-edge features like context-awareness, multilingual support, and adaptive theming. Designed to showcase modern frontend development techniques and AI integration, IntelliBuddy demonstrates sophisticated state management, responsive design, and thoughtful user experience enhancements.
+IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, and Google's Gemini API. It offers a rich, interactive conversational experience with cutting-edge features like context-awareness, multilingual support, and adaptive theming. Designed to showcase modern frontend development techniques, AI integration, and cloud deployment practices, IntelliBuddy demonstrates sophisticated state management, responsive design, containerization with Docker, and Azure cloud hosting.
 
 ---
 
