@@ -1,0 +1,26 @@
+services:
+  intellibuddy:
+    build: .
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_GEMINI_API_KEY=${VITE_GEMINI_API_KEY}
+      - CHOKIDAR_USEPOLLING=false    # Improves file watching performance
+    volumes:
+      # Only mount what's necessary to improve performance
+      - ./src:/app/src
+      - ./index.html:/app/index.html
+      - ./.env:/app/.env
+    # Add container performance improvements
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+    # Improve network performance
+    networks:
+      - intellibuddy-net
+
+networks:
+  intellibuddy-net:
+    driver: bridge

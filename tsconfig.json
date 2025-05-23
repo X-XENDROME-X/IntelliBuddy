@@ -3,6 +3,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true
   },
+  "scripts": {
+  "docker:dev": "docker-compose up",
+  "docker:build": "docker-compose build",
+  "docker:prod": "docker-compose -f docker-compose.prod.yml up -d",
+  "docker:stop": "docker-compose down"
+},
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
