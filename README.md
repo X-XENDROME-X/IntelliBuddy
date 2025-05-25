@@ -4,7 +4,7 @@
   <img src="src/assets/bot-image.png" alt="IntelliBuddy Logo" width="300" />
 </p>
 
-IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, and Google's Gemini API. It offers a rich, interactive conversational experience with cutting-edge features like context-awareness, multilingual support, and adaptive theming. Designed to showcase modern frontend development techniques, AI integration, and cloud deployment practices, IntelliBuddy demonstrates sophisticated state management, responsive design, containerization with Docker, and Azure cloud hosting.
+IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, Node.js, Express.js  and Google's Gemini API. It offers a rich, interactive conversational experience with cutting-edge features like context-awareness, multilingual support, and adaptive theming. Designed to showcase modern frontend development techniques, AI integration, and cloud deployment practices, IntelliBuddy demonstrates sophisticated state management, responsive design, containerization with Docker, and Azure cloud hosting.
 
 ---
 
@@ -56,6 +56,13 @@ IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, a
 - **React Icons**: Icon components for enhanced UI elements
 - **React Markdown**: Markdown parser and renderer for formatted content
 
+
+### Backend
+- **Node.js**: JavaScript runtime environment for server-side execution
+- **Express.js**: Fast, unopinionated web framework for Node.js
+- **CORS**: Cross-Origin Resource Sharing for secure frontend-backend communication
+- **Helmet**: Security middleware for Express applications
+
 ### State Management
 - **React Context API**: For global state management like theme and language preferences
 - **Custom Hooks**: For reusable stateful logic (online status, language switching)
@@ -67,6 +74,7 @@ IntelliBuddy is an advanced AI-powered Assistant built with React, TypeScript, a
 
 ### Containerization & Cloud Deployment
 - **Docker**: Platform for containerising the application, ensuring consistency across environments
+- **Docker Compose**: Multi-container orchestration for local development
 - **Azure Container Registry**: Cloud-hosted container registry for storing Docker images
 - **Azure App Service**: Platform-as-a-Service for hosting web applications with auto-scaling
 
@@ -119,7 +127,7 @@ INTELLIBUDDY/
 │   │   └── useOnlineStatus.ts   # Network connectivity detection
 │   ├── App.tsx                  # Main application component
 │   └── main.tsx                 # Application entry point
-├── .env                         # Environment variables (not committed)
+├── .env                         # Environment variables
 ├── .env.example                 # Example environment file
 ├── index.html                   # HTML entry point
 ├── vite.config.ts               # Vite configuration
@@ -194,6 +202,19 @@ Before running IntelliBuddy, ensure you have:
 
 5. **Access the application:**
    Open your browser and navigate to `http://localhost:5173`
+
+
+## 🐳 Docker Commands
+
+1. **Start development environment**
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Start in background**
+   ```bash
+   docker-compose up --build -d
+   ```
 
 ## 🧪 Usage
 
