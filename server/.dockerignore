@@ -74,4 +74,7 @@ README.md
 .git
 .gitignore
 
-
+# Docker specific
+Dockerfile
+.dockerignore
+docker-compose.yml

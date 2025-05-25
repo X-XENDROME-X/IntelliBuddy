@@ -1,5 +1,4 @@
-# Development stage
-FROM node:18-alpine AS development
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -13,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Expose port
-EXPOSE 5173
+EXPOSE 3001
 
 # Start development server
 CMD ["npm", "run", "dev"]

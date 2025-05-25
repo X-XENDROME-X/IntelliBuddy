@@ -1,35 +1,21 @@
 {
-  "name": "server",
+  "name": "intellibuddy-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend proxy for IntelliBuddy",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "@google/generative-ai": "^0.24.0",
-    "body-parser": "^2.2.0",
+    "express": "^4.18.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^5.1.0"
+    "dotenv": "^16.3.1",
+    "@google/generative-ai": "^0.15.0",
+    "helmet": "^7.0.0",
+    "express-rate-limit": "^7.1.5"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.1",
-    "@types/node": "^22.14.0",
-    "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
-  },
-  "scripts": {
-  "build": "tsc",
-  "start": "node dist/server.js",
-  "dev": "nodemon --exec ts-node src/server.ts",
-  "lint": "eslint . --ext .ts"
-}
-
+    "nodemon": "^3.0.1"
+  }
 }

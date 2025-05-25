@@ -21,6 +21,12 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+server/.env
+server/.env
+server/.env.local
+server/.env.development.local
+server/.env.test.local
+server/.env.production.local
 
 # Editor directories and files
 .vscode/*
@@ -53,3 +59,6 @@ ehthumbs.db
 
 # Vite specific
 vite.config.ts.timestamp-*
+
+# Scripts
+monitor-limits.sh

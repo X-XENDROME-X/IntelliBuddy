@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "dev:fast": "vite --force",
-  "docker:dev:fast": "docker-compose up -d && echo 'IntelliBuddy available at http://localhost:5173'",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:dev": "docker-compose up --build",
+    "docker:dev:detached": "docker-compose up --build -d",
+    "docker:stop": "docker-compose down",
+    "docker:clean": "docker-compose down -v --remove-orphans && docker system prune -f"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",

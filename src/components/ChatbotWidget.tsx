@@ -327,29 +327,41 @@ const ChatbotWidget: React.FC = () => {
   const [tooltipMessage, setTooltipMessage] = useState<string | null>(null);
   const [activeTooltipId, setActiveTooltipId] = useState<string | null>(null);
 
-  const handleContextMenu = (e: React.MouseEvent, messageId: string) => {
-    e.preventDefault();
-    e.stopPropagation(); // Prevent event bubbling
+  const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
+  const [isLongPress, setIsLongPress] = useState<boolean>(false);
 
-    // Find the message that was right-clicked
-    const message = messages.find(msg => msg.id === messageId);
+  // Update handleContextMenu to work with both mouse and touch events
+  const handleContextMenu = (
+    e: React.MouseEvent | React.TouchEvent,
+    messageId: string
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const message = messages.find((msg) => msg.id === messageId);
     if (!message) return;
 
-    // Get chatbot container boundaries
     const chatContainer = document.querySelector('.chat-widget-container');
     const chatBounds = chatContainer?.getBoundingClientRect();
     if (!chatBounds) return;
 
-    // Calculate context menu dimensions
     const contextMenuWidth = 240;
-    const contextMenuHeight = message.sender === 'bot' ? 100 : 50; // Different height based on sender
+    const contextMenuHeight = message.sender === 'bot' ? 100 : 50;
 
-    // Initial position at click point
-    let left = e.clientX;
-    let top = e.clientY;
+    let left: number, top: number;
 
-    // Ensure menu stays within chatbot horizontally and vertically
-    // (rest of your positioning code)
+    if ('touches' in e) {
+      // Touch event
+      const touch = e.touches[0] || e.changedTouches[0];
+      left = touch.clientX;
+      top = touch.clientY;
+    } else {
+      // Mouse event
+      left = (e as React.MouseEvent).clientX;
+      top = (e as React.MouseEvent).clientY;
+    }
+
+    // Ensure menu stays within chatbot boundaries
     if (left + contextMenuWidth > chatBounds.right) {
       left = chatBounds.right - contextMenuWidth - 10;
     }
@@ -363,14 +375,37 @@ const ChatbotWidget: React.FC = () => {
       top = chatBounds.top + 10;
     }
 
-    // Position context menu and include sender type
     setContextMenu({
       visible: true,
       top,
       left,
       messageId: messageId,
-      sender: message.sender // Add sender to the context menu state
+      sender: message.sender,
     });
+  };
+
+  // Add long press handlers
+  const handleTouchStart = (e: React.TouchEvent, messageId: string) => {
+    setIsLongPress(false);
+    const timer = setTimeout(() => {
+      setIsLongPress(true);
+      handleContextMenu(e, messageId);
+    }, 500); // 500ms for long press
+    setLongPressTimer(timer);
+  };
+
+  const handleTouchEnd = () => {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+  };
+
+  const handleTouchMove = () => {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
   };
 
 
@@ -2035,6 +2070,9 @@ IntelliBuddy is a cutting-edge AI assistant powered by Google's Gemini model. It
                     isUser={message.sender === "user"}
                     className="message-bubble"
                     onContextMenu={(e) => handleContextMenu(e, message.id)}
+                    onTouchStart={(e) => handleTouchStart(e, message.id)}
+                    onTouchEnd={handleTouchEnd}
+                    onTouchMove={handleTouchMove}
                   >
                     {message.sender === "bot" &&
                       message.timeOfDay === "morning" && (
@@ -2230,7 +2268,7 @@ IntelliBuddy is a cutting-edge AI assistant powered by Google's Gemini model. It
 const HeaderButtons = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 `;
 
 const HeaderButton = styled.button`
@@ -2249,6 +2287,7 @@ const HeaderButton = styled.button`
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
+    
 `;
 
 // Styled components
@@ -2278,6 +2317,10 @@ const ChatButton = styled(motion.button)`
   bottom: 10px;
   right: 10px;
   transition: background-color 0.3s ease;
+
+  media (max-width: 576px) {
+    width: 60px;
+    height: 60px;
 `;
 
 const ButtonImage = styled.img`
@@ -2311,16 +2354,23 @@ const ChatWidgetContainer = styled(motion.div)`
   transition: background-color 0.3s ease;
 
   @media (max-width: 576px) {
-    width: calc(100vw - 40px);
-    max-width: 360px;
+    width: 100vw; /* Full width on mobile */
+    height: 60vh; /* Full height on mobile */
+    position: fixed;
+  }
+
+  @media (max-width: 380px) {
+    width: 100vw; /* Full width on mobile */
+    height: 60vh; /* Full height on mobile */
+    position: fixed;
   }
 
   @media (max-height: 650px) {
-    height: 450px;
+    height: 100vh; /* Adjust height for smaller screens */
   }
 
   @media (max-height: 550px) {
-    height: 350px;
+    height: 100vh;
   }
 `;
 
@@ -2328,10 +2378,18 @@ const ChatHeader = styled.div`
   background-color: ${(props) =>
     props.theme.name === "dark" ? "#0d3b39" : props.theme.colors.primary};
   color: white;
-  padding: 16px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 576px) {
+    padding: 8px;
+    align-items: flex-start;
+  }
+  @media (max-width: 380px) {
+    padding: 8px;
+    align-items: flex-start;
+  }
 `;
 
 const ChatTitle = styled.div`
@@ -2782,6 +2840,11 @@ const ChatForm = styled.form`
   background-color: ${(props) => props.theme.colors.cardBg};
   border-top: 1px solid ${(props) => props.theme.colors.border};
   position: relative;
+
+  @media (max-width: 576px) {
+    padding: 8px;
+    gap: 6px;
+  }
 `;
 
 const ChatInput = styled.input`
